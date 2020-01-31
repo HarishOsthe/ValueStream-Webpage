@@ -11,9 +11,9 @@ Author URI :
 .mu-simplefilter li:hover,
 .mu-simplefilter li.active,
 .mu-team-content-single:hover {
-	background: #4568DC;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #4568DC;  /*fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #B06AB3, #4568DC); /* Chrome 10-25, Safari 5.1-6*/
+	background: linear-gradient(to top, rgba(100%, 56, 219, 0.5), #B06AB3) ; /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
 }
 
 .mu-heading-title>span,

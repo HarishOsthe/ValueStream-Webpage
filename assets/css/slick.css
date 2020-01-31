@@ -181,7 +181,7 @@
 
 .slick-prev{
     left: 40px;
-    background: #000;
+    background: transparent;
     width: 50px;
     height: 50px;
     z-index: 999;
@@ -202,7 +202,7 @@
 
 .slick-next{
     right: 40px;
-    background: #000;
+    background: transparent;
     width: 50px;
     height: 50px;
     z-index: 999;
@@ -211,7 +211,7 @@
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus{
-	background-color: #000;
+	background-color: transparent;
 	color: #fff;
 }
 

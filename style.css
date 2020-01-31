@@ -468,10 +468,13 @@ button:focus {
 }
 
 .mu-about-content{
+	padding-left: 20%;
 	display: inline;
 	float: left;
 	margin-top: 70px;
 	width: 100%;
+
+
 }
 
 .mu-about-content-single{
@@ -567,13 +570,91 @@ button:focus {
 	color: #ecf0f1;
 }
 
+/*---------------------------------------------*/
+#mu-service2{
+	display: inline;
+	float: left;
+	width: 100%;
+}
+
+.mu-service-area2 {
+	display: inline;
+	float: left;
+	padding: 100px 0;
+	width: 100%;
+}
+
+.mu-service-header2 {
+	display: inline;
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+
+.mu-heading-title2 {
+	color: #1c1b1b;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.mu-header-dot2 {
+	background-color: #7d7373;
+	border-radius: 0;
+	height: 3px;
+	width: 100px;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.mu-service-content2{
+	display: inline;
+	padding-left: 20%;
+	float: left;
+	margin-top: 70px;
+	width: 100%;
+}
+
+.mu-service-content-single2{
+	display: inline;
+	float: left;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 0 10px;
+	width: 100%;
+}
+
+.mu-service-icon-box2 {
+	font-size: 35px;
+	margin-bottom: 20px;
+	display: inline-block;
+	border-radius: 10px;
+}
+
+.mu-service-content-single2 h4{
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.mu-service-content-single2 p{
+	font-size: 15px;
+}
+
+
+
+/*=------------------------------------*/
+
+
+
+
+
 
 /*--------------------*/
 /* SERVICE */
 /*--------------------*/
 
 
-#mu-service {
+#mu-service{
 	display: inline;
 	float: left;
 	width: 100%;
@@ -609,6 +690,8 @@ button:focus {
 }
 
 .mu-service-content{
+	text-align: center;
+	padding-left: 15%;
 	display: inline;
 	float: left;
 	margin-top: 70px;
@@ -641,11 +724,34 @@ button:focus {
 	font-size: 15px;
 }
 
+#holidays {
+	background-color: #f8f8f8;
+	display: inline;
+	float: left;
+	width: 100%;
+}
+
+.holidays-area {
+	display: inline;
+	float: left;
+	padding: 100px 0;
+	width: 100%;
+}
+
+.holidays-header {
+	display: inline;
+	float: left;
+	text-align: center;
+	width: 100%;
+}
 
 /*--------------------*/
 /* PORTFOLIO */
 /*--------------------*/
 
+.mu-table{
+	margin-top: auto;
+}
 
 #mu-portfolio {
 	background-color: #f8f8f8;
@@ -707,7 +813,7 @@ button:focus {
 	background-color: transparent;
 }
 
-.filtr-item h4 {
+.filtr-item h4 {  
 	font-size: 18px;
 }
 
@@ -747,7 +853,7 @@ button:focus {
 	display: inline-block;
 	text-transform: uppercase;
 	padding: 1rem 2rem;
-	margin: 0 5px;
+	margin: 10px 5px;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
 	font-size: 15px;

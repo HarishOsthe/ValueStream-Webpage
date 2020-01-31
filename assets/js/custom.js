@@ -20,6 +20,40 @@
 
 
 (function( $ ){
+	var folder = "assets/images/Top Slider/";
+	$.ajax({
+        type: 'GET',
+        url : folder,
+        success: function (data) {
+			console.log("Script.js")
+            // console.log(data)
+            // $('.mu-featured-slider-single').remove()
+            $(data).find("a").attr("href", function (i, val) {
+                if( val.match(/\.jpg|\.jpeg/) ) { 
+                    $('.mu-featured-slide').append( 
+                        '<div class="mu-featured-slider-single">'+
+                            '<img src="'+ folder + val +'">'+
+                            '<div class="mu-featured-slider-content">'+
+                                '<h1>WELCOME TO BIZINESS</h1>'+
+                                '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever</p>'+
+                                '<a href="#" class="mu-primary-btn">CONTACT US</a>'+
+                            '</div>'+
+                        '</div>'
+                    );
+				}
+				
+			});
+			$('.mu-featured-slide').slick({
+				arrows: true,
+				dots: true,
+				infinite: true,
+				speed: 500,
+				autoplay: true,
+				cssEase: 'linear',
+			  });
+			  console.log("Custom.js")
+        }
+    });
 
 
 	/* ----------------------------------------------------------- */
@@ -41,15 +75,9 @@
 	/*  2. FEATURED SLIDE (SLICK SLIDER)
 	/* ----------------------------------------------------------- */
 
-		$('.mu-featured-slide').slick({
-		  arrows: false,
-		  dots: true,
-		  infinite: true,
-		  speed: 500,
-		  autoplay: true,
-		  cssEase: 'linear'
-		});
+	
 
+		
 
 
 	/* ----------------------------------------------------------- */
@@ -108,13 +136,495 @@
 	/* ----------------------------------------------------------- */
 	/*  4. PORTFOLIO GALLERY
 	/* ----------------------------------------------------------- */ 
-		$('.filtr-container').filterizr();
-
+		// $('.filtr-container').filterizr();
 		//Simple filter controls
 
 	    $('.mu-simplefilter li').click(function() {
 	        $('.mu-simplefilter li').removeClass('active');
-	        $(this).addClass('active');
+			$(this).addClass('active');
+			var csv_file_API = 'birthdays.csv';
+			if(this.textContent == "January"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Jan') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "February"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Feb') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "March"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Mar') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "April"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Apr') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "May"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'May') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "June"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Jun') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "July"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Jul') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "August"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Aug') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "September"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Sep') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "October"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Oct') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "November"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Nov') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else if (this.textContent == "December"){
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						const mont = dt.split(' ')[1]
+
+						if (mont == 'Dec') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			} else {
+				getData();
+				async function getData(){
+					const response = await fetch(csv_file_API);
+					const data = await response.text();
+					
+					const rows = data.split('\n').slice(1);
+					$('#showCSV tr').remove()
+					rows.forEach(ele =>{
+						const row = ele.split(',')
+						const dt = row[0]
+						// const mont = dt.split(' ')[1]
+
+						if (mont == 'Feb') {
+							$('#showCSV').append(
+
+								'<tr>' +
+									'<th scope="row">' +
+									'<span class="badge warning-color-dark badge-pill">' +
+										row[0] +
+									'</span>'+
+									'</th>' + 
+									'<td>' +
+									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+										row[1] +
+									'</span>'+
+									'</td>' +  
+									'<td>' +
+										'<span class="badge badge-primary badge-pill p-2">' +
+											row[2] +
+										'</span>' +
+									'</td>' +
+								'</tr>'
+							);
+						}
+					})
+				}
+			}
 	    });
 	
 	/* ----------------------------------------------------------- */
