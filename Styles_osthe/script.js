@@ -19,8 +19,6 @@ $(document).ready(function () {
 
             var jsonData = $.csv.toObjects(data);
 
-            console.log(jsonData);
-
             $.each(jsonData, function (index, value) {
 
                 
@@ -98,8 +96,6 @@ $(document).ready(function () {
         success: function (data) {
 
             var jsonData = $.csv.toObjects(data);
-
-            console.log(jsonData);
 
             $.each(jsonData, function (index, value) {
 

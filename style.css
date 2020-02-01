@@ -921,14 +921,14 @@ button:focus {
 	color: #fff;
 }
 
-.mu-team-profile {
+.mu-team-profile,.mu-team-profile2 {
 	display: inline;
 	float: left;
 	position: relative;
 	width: 100%;
 }
 
-.mu-team-info {
+.mu-team-info,.mu-team-info2 {
 	display: inline;
 	float: left;
 	width: 100%;
@@ -936,14 +936,14 @@ button:focus {
 	padding: 10px;
 }
 
-.mu-team-info h4 {
+.mu-team-info h4,.mu-team-info2 h4 {
 	font-size: 18px;
 	text-transform: uppercase;
 	margin-top: 10px;
 	margin-bottom: 0;
 }
 
-.mu-team-info span{
+.mu-team-info span,.mu-team-info2 span{
 	font-size: 13px;
 }
 

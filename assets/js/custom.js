@@ -20,23 +20,26 @@
 
 
 (function( $ ){
-	var folder = "assets/images/Top Slider/";
+	var folder1 = "Top Slider/";
 	$.ajax({
         type: 'GET',
-        url : folder,
+        url : folder1,
         success: function (data) {
-			console.log("Script.js")
             // console.log(data)
             // $('.mu-featured-slider-single').remove()
-            $(data).find("a").attr("href", function (i, val) {
-                if( val.match(/\.jpg|\.jpeg/) ) { 
+            $(data).find("a").attr("href", function (i, val1) {
+                if( val1.match(/\.jpg|\.jpeg|\.JPEG|.JPG/) ) { 
+					console.log(decodeURIComponent(val1))
+					const main_text = decodeURIComponent(val1).split('^')[0]
+					const sub_text = decodeURIComponent(val1).split('^')[1].replace(/.jpg|.jpeg|.JPEG|.JPG/g,'')
+					// str.replace(/#|_/g,'');
                     $('.mu-featured-slide').append( 
                         '<div class="mu-featured-slider-single">'+
-                            '<img src="'+ folder + val +'">'+
+                            '<img src="'+ folder1 + val1 +'">'+
                             '<div class="mu-featured-slider-content">'+
-                                '<h1>WELCOME TO BIZINESS</h1>'+
-                                '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever</p>'+
-                                '<a href="#" class="mu-primary-btn">CONTACT US</a>'+
+                                '<h1>'+main_text+'</h1>'+
+                                '<p>'+sub_text+'</p>'+
+                                // '<a href="#" class="mu-primary-btn">CONTACT US</a>'+
                             '</div>'+
                         '</div>'
                     );
@@ -51,10 +54,139 @@
 				autoplay: true,
 				cssEase: 'linear',
 			  });
-			  console.log("Custom.js")
         }
     });
+/*===========================================================================================================*/
+/*===========================================================================================================*/
+	var folder2 = "Our Clients/";
+	$.ajax({
+        type: 'GET',
+        url : folder2,
+        success: function (data) {
+            // console.log(data)
+            // $('.mu-featured-slider-single').remove()
+            $(data).find("a").attr("href", function (i, val2) {
+                if( val2.match(/\.jpg|\.jpeg|\.png|\.JPEG|\.JPG|\.PNG/) ) { 
+                    $('.mu-clients-content').append( 
+                        '<div class="col-sm-6 col-md-2">'+
+							'<div class="mu-clients-content-single">'+
+							// '<img src="'+ folder + val +'">'+
+								'<img src="'+folder2+val2+'" alt="brand image">'+
+                            '</div>'+
+                        '</div>'
+                    );
+				}
+				
+			});
+			$('.mu-clients-content').slick({
+				arrows: true,
+				slidesToShow: 4,
+				slidesToScroll: 2,
+				dots: false,
+				infinite: true,
+				speed: 200,
+				autoplay: true,
+				cssEase: 'linear',
+			  });
+        }
+    });
+/*===========================================================================================================*/
+/*===========================================================================================================*/
 
+/*===========================================================================================================*/
+/*===========================================================================================================*/
+var folder3 = "Our Team/";
+$.ajax({
+	type: 'GET',
+	url : folder3,
+	success: function (data) {
+		
+		$(data).find("a").attr("href", function (i, val3) {
+			if( val3.match(/\.jpg|\.jpeg|\.JPEG|\.JPG/) ) { 
+				const name_text = decodeURIComponent(val3).split('^')[0]
+				const position_text = decodeURIComponent(val3).split('^')[1].replace(/.jpg|.jpeg|.JPEG|.JPG/g,'')
+				$('.mu-team-content').append( 
+					'<div class="col-sm-6 col-md-4">'+
+						'<div class="mu-team-content-single">'+
+							'<div class="mu-team-profile">'+
+								'<img src="'+folder3+val3+'" alt="team member">'+
+							'</div>'+
+							'<div class="mu-team-info">'+
+								'<h4>'+name_text+'</h4>'+
+								'<span>'+position_text+'</span>'+
+							'</div>'+
+						'</div>'+
+					'</div>'
+				);
+			}
+			
+		});
+		$('.mu-team-content').slick({
+			arrows: true,
+			slidesToShow: 4,
+			slidesToScroll: 2,
+			dots: false,
+			infinite: true,
+			speed: 200,
+			autoplay: true,
+			cssEase: 'linear',
+		  });
+	}
+});
+/*===========================================================================================================*/
+/*===========================================================================================================*/
+
+/*===========================================================================================================*/
+/*===========================================================================================================*/
+var folder4 = "Monthly Toppers/";
+
+{/* <div class="col-md-3 col-sm-6">
+	<div class="mu-single-counter">
+		<i class="icon-like"></i>
+		<div class="counter-value" data-count="750">0</div>
+		<h5 class="mu-counter-name">Projects Completed</h5>
+	</div>
+</div> */}
+$.ajax({
+	type: 'GET',
+	url : folder4,
+	success: function (data) {
+		
+		$(data).find("a").attr("href", function (i, val4) {
+			if( val4.match(/\.jpg|\.jpeg|\.JPEG|\.JPG/) ) { 
+				const Mname_text = decodeURIComponent(val4).split('^')[0]
+				const Mposition_text = decodeURIComponent(val4).split('^')[1].replace(/.jpg|.jpeg|.JPEG|.JPG/g,'')
+				$('.mu-counter-block').append( 
+					'<div class="col-sm-6 col-md-3">'+
+						'<div class="mu-single-counter">'+
+							'<div class="mu-team-profile2">'+
+								'<img src="'+folder4+val4+'" alt="team member">'+
+							'</div>'+
+							'<div class="mu-team-info2">'+
+								'<h4>'+Mname_text+'</h4>'+
+								'<span>'+Mposition_text+'</span>'+
+							'</div>'+
+						'</div>'+
+					'</div>'
+				);
+			}
+			
+		});
+		$('.mu-counter-block').slick({
+			arrows: true,
+			slidesToShow: 4,
+			slidesToScroll: 2,
+			dots: false,
+			infinite: true,
+			speed: 200,
+			autoplay: true,
+			cssEase: 'linear',
+		  });
+	}
+});
+/*===========================================================================================================*/
+/*===========================================================================================================*/
+	
 
 	/* ----------------------------------------------------------- */
 	/*  2. FIXED MENU
