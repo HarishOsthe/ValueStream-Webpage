@@ -1,54 +1,109 @@
 ;(function () {
 	
 	'use strict';
-	function openFile(file) {
-        var extension = file.substr( (file.lastIndexOf('.') +1) );
-        switch(extension) {
-            case 'jpg':
-            case 'png':
-            case 'gif':   // the alert ended with pdf instead of gif.
-            case 'zip':
-            case 'rar':
-            case 'pdf':
-            case 'php':
-            case 'doc':
-            case 'docx':
-            case 'xls':
-            case 'xlsx':
-			case 'txt':
-                return true;
-                break;
-            default:
-                return false;
-        }
-	};
+
+	
+	// function openFile(file) {
+    //     var extension = file.substr( (file.lastIndexOf('.') +1) );
+    //     switch(extension) {
+    //         case 'jpg':
+    //         case 'png':
+    //         case 'gif':
+    //             return true;
+    //             break;
+    //         default:
+    //             return false;
+    //     }
+	// };
+
+
+
 	
 
+
+
+	
+	// $.ajax({
+	// 	url: dir+'/Gallary/'+decodeURIComponent(val),
+
+	// 	success: function(data){
+	// 		var count=0;
+	// 		$(data).find("a").attr('href', function(j,val2){
+	// 			if(openFile(val2)){
+	// 				fileNames[j]=decodeURIComponent(val2);
+	// 				console.log(count)
+	// 			}           
+	// 		});
+	// 	}
+	// 	});
+
+
+	// var updateImages = function(){
+		
+
+	// }
+
 	var addFolders = function (){
-		var loc = window.location.pathname;
-		var dir = loc.substring(0, loc.lastIndexOf('/'));
-		var count = ""
+		// var loc = window.location.pathname;
+		// var dir = loc.substring(0, loc.lastIndexOf('/'));
+		// var count = ""
 		// var count2 = 0
-		// var fileNames = new Array();
+		// var fileNames = {}
+		
 		$.ajax({
-			url: dir+'/Gallary',
+			url: '../Gallary',
 			
 			success: function(data){
 			$(data).find("a").attr('href',function (i, val) {
-				var fileNames = {}
-				var count=0
+				var fileExt = {};
+				fileExt[0]=".png";
+				fileExt[1]=".jpg";
+				fileExt[2]=".gif";
+				
+				var count=0;
 				$.ajax({
-				url: dir+'/Gallary/'+decodeURIComponent(val),
-				success: function(data){
-					$(data).find("a").attr('href', function(j,val2){
-						if(openFile(val2)){
-							fileNames[j]=decodeURIComponent(val2);
-						}           
-					});
-				}
-				});
+					// This will retrieve the contents of the folder if the folder is configured as 'browsable'
+					url: '../Gallary/'+val,
+					success: function (data) {
+					var filecount={};
+					// List all png or jpg or gif file names in the page
+					$(data).find("a:contains(" + fileExt[0] + "),a:contains(" + fileExt[1] + "),a:contains(" + fileExt[2] + ")").each(function (k,val2) {
+						var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+						filecount[k]=filename
 
-				console.log(fileNames.length)
+					});
+					// console.log(Object.keys(filecount).length)
+					// console.log(filecount)
+					// var randomNum = Math.floor(Math.random() * Object.keys(filecount).length);
+					// $("img-responsive").src = filecount[randomNum];
+					// $('.grid').append(
+					// 	'<div class="grid-item item animate-box" data-animate-effect="fadeIn">'+
+					// 		'<a href="single.html">'+
+					// 			'<div class="img-wrap">'+
+					// 				'<img src="'+filecount[randomNum]+'" alt="" class="img-responsive">'+
+					// 			'</div>'+
+					// 			'<div class="text-wrap">'+
+					// 				'<div class="text-inner">'+
+					// 					'<div>'+
+											// '<h2>'+decodeURIComponent(val).replace("/","")+'</h2>'+
+											// '<span>7878</span>'+
+					// 					'</div>'+
+					// 				'</div>'+
+					// 			'</div>'+
+					// 		'</a>'+
+					// 	'</div>'
+					// );
+					// $("#fileNames").append('</ul>');
+					}     
+				});
+				// count=Object.keys(filecount).length;s
+				// console.log(Object.keys(filecount).length)
+				// console.log(filecount)
+				// var fileNames = {}
+				// var count=0
+				
+				
+				// console.log(Object.keys(fileNames).length)
 				
 				// console.log(Object.keys(fileNames).length)
 				// console.log(fileNames)
@@ -60,8 +115,7 @@
 				// });				
 
 				if (decodeURIComponent(val).endsWith('/') == true){
-					// var images = ['banner-1.jpg', 'banner-2.jpg', 'banner-3.jpg', 'banner-4.jpg'];
-					// $('<img class="fade-in" src="images/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('#banner-load');
+					
 					$('.grid').append(
 						'<div class="grid-item item animate-box" data-animate-effect="fadeIn">'+
 							'<a href="single.html">'+
@@ -72,7 +126,7 @@
 									'<div class="text-inner">'+
 										'<div>'+
 											'<h2>'+decodeURIComponent(val).replace("/","")+'</h2>'+
-											// '<span>'+count+'</span>'+
+											// '<span>7878</span>'+
 										'</div>'+
 									'</div>'+
 								'</div>'+
@@ -119,7 +173,7 @@
 			
 
 		}); 
-	};    
+	}   
 
 	var isMobile = {
 		Android: function() {
@@ -300,7 +354,9 @@
 
 	
 	$(function(){
-		addFolders();
+		
+		// updateImages();
+		// addFolders();
 		// contentWayPoint();
 		isotopeImageLoaded();
 		toggleAside();

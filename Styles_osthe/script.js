@@ -129,8 +129,8 @@ $(document).ready(function () {
 
         } // end: Ajax success API call
 
-    });
- // end: of Ajax call
+    }); // end: of Ajax call
+    
     
     
     
