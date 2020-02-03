@@ -1,24 +1,28 @@
 /**	
-	* Template Name: Biziness
+	* Template Name: Valuestream Business Solutions
 	* Version: 1.0	
 	* Template Scripts
-	* Author: MarkUps
-	* Author URI: http://www.markups.io/
+	* Author: Harish Osthe
+	* Author URI: https://github.com/HarishOsthe
 
-	Custom JS
-	
-	1. FIXED MENU
-	2. FEATURED SLIDE ( SLICK SLIDER )
-	3. MENU SMOOTH SCROLLING
-	4. PORTFOLIO GALLERY
-	5. GOOGLE MAP
+	1. Top Logo
+	2. Top Announcement Slider
+	3. Our Clients Slider
+	4. Our Team Slider
+	5. Monthly Toppers Slider
+	6. FIXED MENU
+	7. MENU SMOOTH SCROLLING
+	8. Birthday Content
 	6. PORTFOLIO POPUP VIEW ( IMAGE LIGHTBOX )
-	7. CLIENT TESTIMONIALS ( SLICK SLIDER )
+	9. CLIENT TESTIMONIALS ( SLICK SLIDER )
 	
 **/
 
 
-
+/* ===================================================
+	1. Top Logo
+   ===================================================
+*/
 (function( $ ){
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 150) {
@@ -28,29 +32,31 @@
 			$('.navbar .navbar-brand img').attr('src','/assets/Logos/Valuestream-Logo-200.png');
 		}
 	})
-/*===========================================================================================================*/
-/*===========================================================================================================*/
+/* ===================================================
+	1. End OF Top Logo
+   ===================================================
+*/
 
+/* ===================================================
+	2. Top Announcement Slider
+   ===================================================
+*/
 	var folder1 = "Top Slider/";
 	$.ajax({
         type: 'GET',
         url : folder1,
         success: function (data) {
-            // console.log(data)
-            // $('.mu-featured-slider-single').remove()
             $(data).find("a").attr("href", function (i, val1) {
-                if( val1.match(/\.jpg|\.jpeg|\.JPEG|.JPG/) ) { 
+                if( val1.match(/\.jpg|\.jpeg|\.JPEG|\.JPG|\.png|\.PNG/g) ) { 
 					console.log(decodeURIComponent(val1))
 					const main_text = decodeURIComponent(val1).split('^')[0]
-					const sub_text = decodeURIComponent(val1).split('^')[1].replace(/.jpg|.jpeg|.JPEG|.JPG/g,'')
-					// str.replace(/#|_/g,'');
+					const sub_text = decodeURIComponent(val1).split('^')[1].replace(/.jpg|.jpeg|.JPEG|.JPG|.png|.PNG/g,'')
                     $('.mu-featured-slide').append( 
                         '<div class="mu-featured-slider-single">'+
                             '<img src="'+ folder1 + val1 +'">'+
                             '<div class="mu-featured-slider-content">'+
                                 '<h1>'+main_text+'</h1>'+
                                 '<p>'+sub_text+'</p>'+
-                                // '<a href="#" class="mu-primary-btn">CONTACT US</a>'+
                             '</div>'+
                         '</div>'
                     );
@@ -61,16 +67,21 @@
 				arrows: true,
 				dots: true,
 				infinite: true,
-				speed: 500,
+				speed: 400,
 				autoplay: true,
 				cssEase: 'linear',
 			  });
         }
 	});
-	
-/*===========================================================================================================*/
-/*===========================================================================================================*/
-	var folder2 = "Our Clients/";
+/* ===================================================
+	2. End Of Top Announcement Slider
+   ===================================================
+*/	
+
+/* ===================================================
+	3. Our Clients Slider
+   ===================================================
+*/	var folder2 = "Our Clients/";
 	$.ajax({
         type: 'GET',
         url : folder2,
@@ -101,12 +112,17 @@
 				cssEase: 'linear',
 			  });
         }
-    });
-/*===========================================================================================================*/
-/*===========================================================================================================*/
+	});
 
-/*===========================================================================================================*/
-/*===========================================================================================================*/
+/* ===================================================
+	3. End of Our Clients Slider
+   ===================================================
+*/
+
+/* ===================================================
+	4. Our Team Slider
+   ===================================================
+*/
 var folder3 = "Our Team/";
 $.ajax({
 	type: 'GET',
@@ -145,20 +161,17 @@ $.ajax({
 		  });
 	}
 });
-/*===========================================================================================================*/
-/*===========================================================================================================*/
 
-/*===========================================================================================================*/
-/*===========================================================================================================*/
+/* ===================================================
+	4. End of Our Team Slider
+   ===================================================
+*/
+
+/* ===================================================
+	5. Monthly Toppers Slider
+   ===================================================
+*/
 var folder4 = "Monthly Toppers/";
-
-{/* <div class="col-md-3 col-sm-6">
-	<div class="mu-single-counter">
-		<i class="icon-like"></i>
-		<div class="counter-value" data-count="750">0</div>
-		<h5 class="mu-counter-name">Projects Completed</h5>
-	</div>
-</div> */}
 $.ajax({
 	type: 'GET',
 	url : folder4,
@@ -196,12 +209,15 @@ $.ajax({
 		  });
 	}
 });
-/*===========================================================================================================*/
-/*===========================================================================================================*/
-	
+
+
+/* ===================================================
+	5. End Of Monthly Toppers Slider
+   ===================================================
+*/
 
 	/* ----------------------------------------------------------- */
-	/*  2. FIXED MENU
+	/*  6. FIXED MENU
 	/* ----------------------------------------------------------- */
 
 
@@ -214,18 +230,8 @@ $.ajax({
 	    }
 	});
 
-		
 	/* ----------------------------------------------------------- */
-	/*  2. FEATURED SLIDE (SLICK SLIDER)
-	/* ----------------------------------------------------------- */
-
-	
-
-		
-
-
-	/* ----------------------------------------------------------- */
-	/*  3. MENU SMOOTH SCROLLING
+	/*  7. MENU SMOOTH SCROLLING
 	/* ----------------------------------------------------------- */ 
 
 		//MENU SCROLLING WITH ACTIVE ITEM SELECTED
@@ -277,10 +283,10 @@ $.ajax({
 		})
 
 
-	/* ----------------------------------------------------------- */
-	/*  4. PORTFOLIO GALLERY
-	/* ----------------------------------------------------------- */ 
-		// $('.filtr-container').filterizr();
+/* ===================================================
+	8. Birthdays Content
+   ===================================================
+*/		// $('.filtr-container').filterizr();
 		//Simple filter controls
 
 	    $('.mu-simplefilter li').click(function() {
@@ -744,7 +750,7 @@ $.ajax({
 						const dt = row[0]
 						// const mont = dt.split(' ')[1]
 
-						if (mont == 'Feb') {
+						// if (mont == 'Feb') {
 							$('#showCSV').append(
 
 								'<tr>' +
@@ -765,25 +771,15 @@ $.ajax({
 									'</td>' +
 								'</tr>'
 							);
-						}
+						// }
 					})
 				}
 			}
-	    });
-	
-	/* ----------------------------------------------------------- */
-	/*  5. GOOGLE MAP
-	/* ----------------------------------------------------------- */ 
-		    
-	    $('#mu-google-map').click(function () {
-		    $('#mu-google-map iframe').css("pointer-events", "auto");
 		});
-		
-		$("#mu-google-map").mouseleave(function() {
-		  $('#mu-google-map iframe').css("pointer-events", "none"); 
-		});
-		
-		
+/* ===================================================
+	8. End Of Birthdays Content
+   ===================================================
+*/	
 
 	/* ----------------------------------------------------------- */
 	/*  6. PORTFOLIO POPUP VIEW ( IMAGE LIGHTBOX )
@@ -798,7 +794,7 @@ $.ajax({
 	});
 
 	/* ----------------------------------------------------------- */
-	/*  7. CLIENT TESTIMONIALS (SLICK SLIDER)
+	/*  9. CLIENT TESTIMONIALS (SLICK SLIDER)
 	/* ----------------------------------------------------------- */
 
 		$('.mu-testimonial-slide').slick({

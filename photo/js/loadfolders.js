@@ -78,7 +78,6 @@ $(document).ready(function () {
 
     });
     $(document).on('click', '.link_img', function (valu) {
-        alert($(this).attr('text'));
         var queryString = "?para1=" + $(this).attr('text');
         window.location.href = "single.html" + queryString;
     });
