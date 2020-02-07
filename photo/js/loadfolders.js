@@ -77,14 +77,7 @@ $(document).ready(function () {
         } // end: Ajax success API call
 
     });
-    // $('#about').click(   // If you wish to do something clicking anchor
-    //     function(){
-    //        alert("Hello");
-    //     }); 
     $(document).on('click', '.link_img', function (valu) {
-        alert($(this).attr('text'));
-        // var value1 = 'foo';
-        // var value2 = 'bar';
         var queryString = "?para1=" + $(this).attr('text');
         window.location.href = "single.html" + queryString;
     });
