@@ -23,15 +23,21 @@
 	1. Top Logo
    ===================================================
 */
+// if (navigator.platform.startsWith('Linux') == true){
+// 	// var loc=window.location.pathname;
+// 	// console.log(loc.substring(0, loc.lastIndexOf('/')));
+// 	console.log(window.location.pathname.replace(/[^\\\/]*$/g, ''))
+// }
+
 (function( $ ){
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 150) {
-			$('.navbar .navbar-brand img').attr('src','/assets/Logos/Valuestream-Logo-white.png');
-		}
-		if ($(this).scrollTop() < 150) {
-			$('.navbar .navbar-brand img').attr('src','/assets/Logos/Valuestream-Logo-200.png');
-		}
-	})
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 150) {
+				$('.navbar .navbar-brand img').attr('src','/assets/Logos/Valuestream-Logo-white.png');
+			}
+			if ($(this).scrollTop() < 150) {
+				$('.navbar .navbar-brand img').attr('src','/assets/Logos/Valuestream-Logo-200.png');
+			}
+		})
 /* ===================================================
 	1. End OF Top Logo
    ===================================================
@@ -71,6 +77,9 @@
 				autoplay: true,
 				cssEase: 'linear',
 			  });
+			// for(var i in navigator){
+			// 	console.log(i+"="+navigator[i]+'<br>');
+			// }
         }
 	});
 /* ===================================================
@@ -316,7 +325,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -353,7 +362,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -390,7 +399,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -427,7 +436,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -464,7 +473,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -501,7 +510,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -538,7 +547,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -575,7 +584,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -612,7 +621,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -649,7 +658,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -686,7 +695,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -723,7 +732,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  
@@ -760,7 +769,7 @@ $.ajax({
 									'</span>'+
 									'</th>' + 
 									'<td>' +
-									'<span style="width: 15%; font-size: 1rem;  color: #37474F">' +
+									'<span style="width: 15%; color: #37474F">' +
 										row[1] +
 									'</span>'+
 									'</td>' +  

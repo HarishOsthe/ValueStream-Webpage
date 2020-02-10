@@ -2,9 +2,15 @@ $(document).ready(function(){
     var queryString = decodeURIComponent(window.location.search); //parsing
     queryString = queryString.substring(1);
     var queries = queryString.split("&");
-    var img_location = '../Gallary/'+queries[0];
+    var img_location = '';
+
+     if (navigator.platform.startsWith('Linux') == true){
+      img_location = '../Gallary/'+queries[0];
+     } else{
+      img_location = '..\\Gallary\\'+queries[0];
+     }
+     
     img_location = img_location.replace('para1=','');
-    console.log(img_location);
 
     $.ajax({
 
@@ -30,19 +36,25 @@ $(document).ready(function(){
                 im = im.split(',');
 
                 im.forEach(element => {
-                  img_loc = element.replace('./','../Gallary/');
+                  if (navigator.platform.startsWith('Linux') == true){
+                    img_loc = element.replace('./','../Gallary/');  
+                    img_name = img_loc.split('/')[3];
+                  } else{
+                    img_loc = element.replace('.\\','..\\Gallary\\');
+                    img_name = img_loc.split('\\')[5];
+                  }
 
-                  console.log(img_loc)
+                  
                   $('.grid').append(
                     '<div class="grid-item item animate-box" data-animate-effect="fadeIn">'+
-                      '<a href="'+img_loc+'" class="image-popup" title="Name of photo or title here">'+
+                      '<a href="'+img_loc+'" class="image-popup" title="'+img_name+'">'+
                       '<div class="img-wrap">'+
                         '<img src="'+img_loc+'" alt="" class="img-responsive">'+
                       '</div>'+
                       '<div class="text-wrap">'+
                         '<div class="text-inner popup">'+
                           '<div>'+
-                            '<h2>Name of photo or title here</h2>'+
+                            '<h2>"'+img_name+'"</h2>'+
                           '</div>'+
                         '</div>'+
                       '</div>'+

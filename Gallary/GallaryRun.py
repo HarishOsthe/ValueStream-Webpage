@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import platform
 
 allDir=list()
 def getListOfFiles(dirName):
@@ -26,9 +27,14 @@ my_dict=dict(
 for j in allDir:
     my_dict["FolderName"].append(j)
     li=[]
-    for i in listOfFiles:
-        if i.startswith(f'./{j}/'):
-            li.append(i)
+    if platform.system() == 'Linux':
+        for i in listOfFiles:
+            if i.startswith(f'./{j}/'):
+                li.append(i)
+    else:
+        for i in listOfFiles:
+            if i.startswith(f'.\\{j}\\'):
+                li.append(i)      
     my_dict["FolderContents"].append(li)
     my_dict["FolderContentCount"].append(len(li))
     

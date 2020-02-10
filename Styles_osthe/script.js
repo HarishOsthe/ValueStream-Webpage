@@ -20,8 +20,6 @@ $(document).ready(function () {
             var jsonData = $.csv.toObjects(data);
 
             $.each(jsonData, function (index, value) {
-
-                
                 $('#showCSV').append(
 
                     '<tr>' +

@@ -8,21 +8,25 @@ $(document).ready(function () {
         dataType: 'text',
 
         error: function (e) {
-            alert('An error occurred while processing API calls');
+            alert('An error occurred while collecting photos');
             console.log("API call Failed: ", e);
         },
 
         success: function (data) {
             var jsonData = $.csv.toObjects(data);
-
             $.each(jsonData, function (index, value) {
                 var im = value["FolderContents"]
                 var img_location = decodeURIComponent(im.split(',')[Math.floor(Math.random() * Number(value["FolderContentCount"]))]).replace('[','');
                 img_location = img_location.replace(']','');
-                img_location = img_location.replace('./','../Gallary/');
-
+                
+                if (navigator.platform.startsWith('Linux') == true){
+                    img_location = img_location.replace('./','../Gallary/');        
+                } else {
+                    img_location = img_location.replace('.\\','..\\Gallary\\');
+                }
+                
+                console.log(img_location)                
                 $('.grid').append(
-                    
                     '<div class="grid-item item animate-box" data-animate-effect="fadeIn">'+
                         '<a class="link_img" text="'+value["FolderName"]+'">'+
                             '<div class="img-wrap">'+
